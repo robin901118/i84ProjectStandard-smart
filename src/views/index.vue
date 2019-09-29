@@ -9,7 +9,7 @@
 </template>
 
 <script>
-  import myHeader from '../components/header/header';
+  import myHeader from '../components/myHeader/header';
   import logo from '../assets/img/i84-logo.png';
 
   export default {
