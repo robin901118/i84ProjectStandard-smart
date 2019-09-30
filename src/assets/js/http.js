@@ -2,7 +2,6 @@ import axios from 'axios'
 import QS from 'qs'
 import { Dialog } from 'cube-ui'
 import router from '../../router'
-import { BASE_URL }  from '../../config/index'
 import { mutations } from './store'
 const CancelToken = axios.CancelToken
 
@@ -13,7 +12,7 @@ const CancelToken = axios.CancelToken
  * all()  =>  并发请求方法
  * +++++++++++++++++++++++++++++++++++
  * */
-class Http {
+export default class Http {
   constructor (publicPath) {
     this.$http = axios.create()
     this.$http.defaults.baseURL = publicPath
@@ -189,5 +188,3 @@ class Http {
     }, false).show()
   }
 }
-
-export default new Http(BASE_URL)
