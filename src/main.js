@@ -7,7 +7,6 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import Http from './assets/js/http'
-import Navigation from 'vue-navigation'
 import { BASE_URL }  from '@/config/index'
 
 /**
@@ -16,7 +15,6 @@ import { BASE_URL }  from '@/config/index'
  * +++++++++++++++++++++++++++++++++++
  * */
 import './cube-ui'
-Vue.use(Navigation,{router})
 
 /**
  * +++++++++++++++++++++++++++++++++++

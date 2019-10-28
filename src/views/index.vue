@@ -9,7 +9,7 @@
 </template>
 
 <script>
-  import myHeader from '../components/myHeader/header';
+  import myHeader from '../components/myHeader/myHeader';
   import logo from '../assets/img/i84-logo.png';
 
   export default {
@@ -22,8 +22,7 @@
     components: {myHeader},
     async mounted(){
       try{
-
-        const rst = await this.$http.ajax({
+        await this.$http.ajax({
           url:"/api",
           method:"POST",
           data:{
