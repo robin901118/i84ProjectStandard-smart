@@ -5,9 +5,9 @@
  * */
 import Vue from 'vue'
 import App from './App.vue'
-import router from './router'
 import Http from './assets/js/http'
 import { BASE_URL }  from '@/config/index'
+import router from './router'
 
 /**
  * +++++++++++++++++++++++++++++++++++
@@ -24,16 +24,6 @@ import './cube-ui'
 
 Vue.prototype.$http = new Http(BASE_URL)// 封装好的请求
 Vue.config.productionTip = false
-
-/**
- * +++++++++++++++++++++++++++++++++++
- * 路由拦截
- * +++++++++++++++++++++++++++++++++++
- * */
-router.beforeEach((to, from, next) => {
-  document.title = to.meta.title  // 更改title
-  next()
-})
 
 /**
  * +++++++++++++++++++++++++++++++++++
