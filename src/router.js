@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import NotFind from '@/views/404.vue'
-import Home from '@/views/index.vue'
+import NotFind from './views/404.vue'
+import Home from './views/index.vue'
+
 Vue.use(VueRouter)
 
 /**
@@ -28,13 +29,13 @@ const router = new VueRouter({
       path: '*',
       name: 'notFind',
       component: NotFind,
-      meta: { requireAuth: false, title: '404', index: 9999 }
+      meta: {requireAuth: false, title: '404', index: 9999, keepAlive: false, scrollTop: 0}
     },
     {
       path: '/',
       name: 'home',
       component: Home,
-      meta: { requireAuth: false, title: 'hello 爱巴士', index: 1 }
+      meta: {requireAuth: false, title: 'hello 爱巴士', index: 1, keepAlive: false, scrollTop: 0}
     }
   ]
 })
@@ -45,8 +46,14 @@ const router = new VueRouter({
  * +++++++++++++++++++++++++++++++++++
  * */
 router.beforeEach((to, from, next) => {
+  if (from.meta.keepAlive) {                                                      //+++++++++++Keep-alive页面+++++++++++
+    const $content = document.querySelector('#content');                 //保存当前页面的滚动条位置，提供给keep-alive
+    const scrollTop = $content ? $content.scrollTop : 0;                          //使用
+    from.meta.scrollTop = scrollTop;
+  }
+
   document.title = to.meta.title  // 更改title
   next()
 })
 
-export default router;
+export default router
