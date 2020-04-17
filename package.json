@@ -7,7 +7,7 @@
     "test": "vue-cli-service build --mode test",
     "mock": "vue-cli-service serve --mode mock",
     "production": "vue-cli-service build --mode production",
-    "remove": "rimraf node_modules"
+    "remove": "rmdir /s/q node_modules"
   },
   "dependencies": {
     "axios": "^0.19.0",
