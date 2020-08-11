@@ -3,7 +3,7 @@ const baseUrl = process.env.NODE_ENV === 'production' ? './' : '/'
 
 
 const devServe = ()=>{
-  if(process.env.VUE_APP_CURRENTMODE === "mock"){
+  if(process.env.VUE_APP_CURRENTMODE === "mock" || process.env.VUE_APP_CURRENTMODE === "test"){
     return {
       port: 9090,
       proxy: {
